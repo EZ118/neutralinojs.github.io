@@ -7,7 +7,7 @@ toc_max_heading_level: 2
 
 ## net.request(url, method, options)
 
-Sends an HTTP/HTTPS request with the given method and options. This is the core method used by all other shorthand methods. The promise rejects with one of the following error codes (see [Error Codes](./error-codes.md) for details):
+Sends an HTTP/HTTPS request with the given method and options. This is the core method used by all other shorthand methods. All responses are returned as a complete payload; streaming is not supported. The promise rejects with one of the following error codes (see [Error Codes](./error-codes.md) for details):
 
 - `NE_NW_SSLCONN` – SSL connection failed.
 - `NE_NW_SSLLOAD` – SSL certificate loading failed.
@@ -30,14 +30,14 @@ Sends an HTTP/HTTPS request with the given method and options. This is the core 
 ### Options
 
 - `timeout` Number (optional): Request timeout in milliseconds.
-- `params` Object (optional, cannot be used with `body`): Form parameters to be sent as `application/x-www-form-urlencoded`. For `POST` requests this becomes the request body; for other methods they are appended to the URL as query string.
+- `params` Object (optional, cannot be used with `body`): Form parameters to be sent. Only effective for `GET` and `POST` requests. For `POST`, these are sent as `application/x-www-form-urlencoded` in the request body. For `GET`, they are appended to the URL as a query string. For other methods, this option is ignored.
 - `headers` Object (optional): Custom HTTP headers.
 - `auth` Object (optional): Basic authentication credentials.
   - `username` String
   - `password` String
 - `body` String (optional, cannot be used with `params`): Raw request body. When provided, `contentType` must also be set.
 - `allowRedirects` Boolean (optional): Follow redirects automatically. Default is `false`.
-- `encodePath` Boolean (optional): Encode special characters in the URL path. Enabled by default.
+- `encodePath` Boolean (optional): Encode special characters in the URL path. Default is `true`.
 - `keepAlive` Boolean (optional): Use a Keep-Alive connection.
 - `contentType` String (required when `body` is used): Value of the `Content-Type` header (e.g., `application/json`).
 
