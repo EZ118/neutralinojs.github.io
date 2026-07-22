@@ -23,6 +23,7 @@ module.exports = {
         'api/extensions',
         'api/filesystem',
         'api/init',
+        'api/net',
         'api/os',
         'api/storage',
         'api/updater',

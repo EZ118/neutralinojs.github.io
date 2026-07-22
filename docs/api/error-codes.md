@@ -64,3 +64,8 @@ The error object has the following structure:
 | `NE_CO_UNLTOMG`| Unable to set mouse grabbing | `computer.setMouseGrabbing`
 | `NE_CO_UNLTOSK`| Unable to simulate the key event | `computer.sendKey`
 | `NE_CO_UNLTONI`| Unable to retrieve network interface details | `computer.getNetworkInterfaces`
+| `NE_NW_SSLCONN`| SSL connection failed | `net.*` |
+| `NE_NW_SSLLOAD`| SSL certificate loading failed | `net.*` |
+| `NE_NW_SSLVERI`| SSL server verification failed | `net.*` |
+| `NE_NW_SSLHOST`| SSL hostname verification failed | `net.*` |
+| `NE_NW_HTTPERR`| HTTP error | `net.*` |
